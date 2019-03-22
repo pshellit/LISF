@@ -281,7 +281,7 @@ subroutine read_SMAP_L3Tb(source, fname, L3TB)
           start=offset_mem, count=count_mem, hdferr=status)
      call LVT_verify(status, 'Error in h5sselect_hyperslab_f: readANSASNWD')
      
-     call h5dread_f(Tbh_field_id_D, H5T_NATIVE_REAL,Tbv_field_D,dims,status, &
+     call h5dread_f(Tbh_field_id_D, H5T_NATIVE_REAL,Tbh_field_D,dims,status, &
           memspace, dataspace)
      call LVT_verify(status, 'Error extracting SM (AM) field from NASASMAPfile')
 
@@ -306,7 +306,7 @@ subroutine read_SMAP_L3Tb(source, fname, L3TB)
           start=offset_mem, count=count_mem, hdferr=status)
      call LVT_verify(status, 'Error in h5sselect_hyperslab_f: readANSASNWD')
      
-     call h5dread_f(Tbv_field_id_A, H5T_NATIVE_REAL,Tbv_field_A,dims,status, &
+     call h5dread_f(Tbh_field_id_A, H5T_NATIVE_REAL,Tbh_field_A,dims,status, &
           memspace, dataspace)
      call LVT_verify(status, 'Error extracting SM (AM) field from NASASMAPfile')
 
@@ -324,7 +324,7 @@ subroutine read_SMAP_L3Tb(source, fname, L3TB)
      call LVT_verify(status,'Error in H5GCLOSE call')
   
 
-    call h5dclose_f(Tbh_field_id_D,status)
+     call h5dclose_f(Tbh_field_id_D,status)
      call LVT_verify(status,'Error in H5DCLOSE call')
 
      call h5dclose_f(Tbh_field_id_A,status)
