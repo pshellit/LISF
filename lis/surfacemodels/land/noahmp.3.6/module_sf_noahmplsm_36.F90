@@ -1764,7 +1764,7 @@ contains
         ! RSURF based on Sakaguchi and Zeng, 2009
         ! taking the "residual water content" to be the wilting point, 
         ! and correcting the exponent on the D term (typo in SZ09 ?)
-        L_RSURF = (-ZSOIL(1)) * ( exp ( (1.0 - MIN(1.0,SH2O(1)/SMCMAX)) ** 5 ) - 1.0 ) / ( 2.71828 - 1.0 ) 
+        L_RSURF = (0.1) * ( exp ( (1.0 - MIN(1.0,SH2O(1)/SMCMAX)) ** 5 ) - 1.0 ) / ( 2.71828 - 1.0 ) 
         D_RSURF = 2.2E-5 * SMCMAX * SMCMAX * ( 1.0 - SMCWLT / SMCMAX ) ** (2.0+3.0/BEXP)
         RSURF = L_RSURF / D_RSURF
 
